@@ -78,3 +78,5 @@ When we ran the tukeyHSD test the graph displayed both LT high school and gradut
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+Through analyzing the data we can see that there is a diffeernce in lt highschool and rgradute results as well as highschool and graduate resuelts at varying confidence levels.

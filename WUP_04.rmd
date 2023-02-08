@@ -11,7 +11,7 @@ output:
 require(knitr)
 require(tidyverse)
 require(tigerstats)
-mydata <- read.csv(file="GSScsv")
+mydata <-read.csv(file="GSScsv.csv")
 ```
 
 # Introduction
@@ -49,9 +49,30 @@ In this box plot its seen that both Lt High School and high school participants 
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(WORDSUM~DEGREE,data=mydata)
+```
+
+The Q1 of graduate school is 10 while the Q3 of LT high school are both lower than the Q1 of graduate. 
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=mydata)
+summary.aov(model1)
+```
+
+The probability of there being no difference between these different groups is 0.000236. So this means that there is a difference because that probability number is so small. A multiple comparison test would need to be run in order to find out the difference in categories. 
+
+```{r}
+a <- TukeyHSD(model1,conf.level=.99)
+par(mar = c(3, 15.7, 2, 2))
+plot (a,las=2)
+```
+```
+When we ran the tukeyHSD test the graph displayed both LT high school and gradute and highschooll and graduate have statical differences at 95% level.
 
 
 # Discussion and Conclusion
